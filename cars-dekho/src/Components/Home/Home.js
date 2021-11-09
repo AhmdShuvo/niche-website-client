@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
+import Banner from '../Header/Banner/Banner';
 import Car from './Car/Car';
+import Review from './Review/Review';
 
 const Home = () => {
 
@@ -11,8 +13,13 @@ const Home = () => {
 
     },[])
     return (
+<>
+        <Banner></Banner>
         <Container>
+           
             <h1>top Cars</h1>
+
+            {/* Cars Available  */}
 
             <Container>
             <Row xs={1} md={3} className="g-4">
@@ -25,7 +32,12 @@ const Home = () => {
 
             </Row>
             </Container>
+
+                   
+                   {/* USer Reiview  */}
+            <Review></Review>
         </Container>
+        </>
 
     );
 };
