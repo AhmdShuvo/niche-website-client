@@ -22,15 +22,17 @@ console.log(logInData);
 
   }
     const handleSignup=e=>{
-      if(logInData.password.length<=6)
+      if(logInData.password.length<6)
       {
         setError("password must be 6 digits")
-
-        
+  
       }
                    
-      register(logInData.email,logInData.password)
+     else{
+        register(logInData.email,logInData.password,logInData.name)
+        console.log(logInData.name);
 
+     }
         e.preventDefault()
     }
     return (
@@ -39,23 +41,24 @@ console.log(logInData);
             <Form onSubmit={handleSignup}>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Name</Form.Label>
-    <Form.Control onChange={handleChange} name="name" type="text" placeholder="Enter Name" />
+    <Form.Control onBlur={handleChange} name="name" type="text" placeholder="Enter Name" />
     <Form.Text className="text-muted">
       Enter Your Name here.
     </Form.Text>
   </Form.Group>
   <Form.Group className="mb-3" controlId="formBasicEmail">
-    { error && <h6>{error}</h6>}
+    
     <Form.Label>Email address</Form.Label>
-    <Form.Control onChange={handleChange} type="email" name="email" placeholder="Enter email" />
+    <Form.Control onBlur={handleChange} type="email" name="email" placeholder="Enter email" />
     <Form.Text className="text-muted">
       We'll never share your email with anyone else.
     </Form.Text>
   </Form.Group>
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control onChange={handleChange} type="password" name="password" placeholder="Password" />
+    <Form.Label>Password</Form.Label><br/>
+    { error && <small className="text-danger">{error}</small>}
+    <Form.Control onBlur={handleChange} type="password" name="password" placeholder="Password" />
   </Form.Group>
   <Button className="border rounded-3 p-3 fs-5 btn-warning text-white"  type="submit">
    Sign Up

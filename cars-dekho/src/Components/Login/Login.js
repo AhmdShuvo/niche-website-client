@@ -3,13 +3,18 @@ import React, { useState } from 'react';
 import { Form ,Button, Container} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
+import { useHistory, useLocation } from 'react-router';
 
 const Login = () => {
 
   
-  const {Login,error,setError,isLoading}=useAuth()
+  const {Login,error,setError,isLoading,setIsLoadng}=useAuth()
 
  const [logInData,setData]=useState({})
+
+ const location=useLocation()
+ const history=useHistory()
+ const url=location.state?.from.location.pathname||"/home"
     
 
   const handleChange=e=>{
@@ -18,17 +23,30 @@ const Login = () => {
 const newLogindata={...logInData}
 newLogindata [field]=value;
 setData(newLogindata)
-console.log(logInData);
-
-
   }
 
   const handleLogin=e=>{
-          Login(logInData.email,logInData.password)
-
     e.preventDefault()
+    
+          Login(logInData.email,logInData.password).then((userCredential) => {
+            // Signed in 
+            
+            const user = userCredential.user;
+            history.replace(url)
+            // ...
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+          }).finally(()=>{
+            setIsLoadng(false);
+          });
+
+
+   
   }
     return (
+      <>
        <Container>
             <h1>Login</h1>
             <Form onSubmit={handleLogin}>
@@ -41,7 +59,7 @@ console.log(logInData);
   </Form.Group> */}
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
-    <Form.Control onChange={handleChange} type="email" name="email" placeholder="Enter email" />
+    <Form.Control onBlur={handleChange} type="email" name="email" placeholder="Enter email" />
     <Form.Text className="text-muted">
       We'll never share your email with anyone else.
     </Form.Text>
@@ -49,7 +67,7 @@ console.log(logInData);
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
-    <Form.Control onChange={handleChange} type="password" name="password" placeholder="Password" />
+    <Form.Control onBlur={handleChange} type="password" name="password" placeholder="Password" />
   </Form.Group>
   <Button className="border rounded-3 p-3 fs-5" variant="primary" type="submit">
     Log In
@@ -57,6 +75,10 @@ console.log(logInData);
 </Form>
          <center> <Link style={{color:'salmon'}} className="navbar-brand" to="/signup">New User ? SignUp Now</Link></center>
        </Container>
+
+
+        <center><Button>GoogleSignIn</Button></center>
+       </>
     );
 };
 

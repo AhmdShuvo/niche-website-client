@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import initializeFirebase from "../Firebase/FirebaseInitialize";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged,signOut,signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged,signOut,signInWithEmailAndPassword,updateProfile,signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useHistory,} from 'react-router';
 
 
 
@@ -10,19 +11,38 @@ initializeFirebase()
 const useFirebase=()=>{
 
   const [error,setError]=useState('')
-  const[isLoading,setIsLoadng]=useState(false)
+  const[isLoading,setIsLoadng]=useState(true)
 
     const [user,setUser]=useState({})
-    const auth=getAuth()
+    const auth=getAuth();
+
+    const googleProvider=new GoogleAuthProvider()
 
 
+
+
+      
 
     // create User ////
-   const register=(email,password)=>{
-     setIsLoadng(true)
+   const register=(email,password,name)=>{
        createUserWithEmailAndPassword(auth,email,password).then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
+        const newUser={email,displayName:name}
+        setUser(newUser)
+
+        // UPdate user In FIrebse //
+        updateProfile(auth.currentUser, {
+          displayName: name
+        }).then(() => {
+          // Profile updated!
+          // ...
+        }).catch((error) => {
+          // An error occurred
+          // ...
+        });
+       
+      
         // ...
       })
       .catch((error) => {
@@ -30,7 +50,7 @@ const useFirebase=()=>{
         const errorMessage = error.message;
         
         // ..
-      }).finally(()=>setIsLoadng(false));
+      })
 
 
 }
@@ -50,18 +70,11 @@ const LogOUt=()=>{
  
 // Sign IN user ///
 const Login=(email,password)=>{
-  setIsLoadng(true)
+ 
 
-    signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  }).finally(()=>setIsLoadng(false));
+  return  signInWithEmailAndPassword(auth, email, password)
+  
+  
 }
 
  
@@ -74,11 +87,13 @@ useEffect(()=>{
           // https://firebase.google.com/docs/reference/js/firebase.User
           const uid = user.uid;
           setUser(user)
+          setIsLoadng(false)
           // ...
         } else {
             setUser({})
           // User is signed out
           // ...
+          
         }
       });
       return ()=>unSubscribe;
@@ -89,7 +104,7 @@ useEffect(()=>{
 
 
 
-    return {user,register,LogOUt,Login,error,setError,isLoading}
+    return {user,register,LogOUt,Login,error,setError,isLoading,setIsLoadng}
 }
 
 

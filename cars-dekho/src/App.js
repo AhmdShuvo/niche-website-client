@@ -9,6 +9,7 @@ import Services from './Components/Services/Services';
 import Login from './Components/Login/Login';
 import SignUp from './Components/SignUp/SignUp';
 import AuthProvider from './Contexts/AuthProvider';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 
 
 function App() {
@@ -26,9 +27,9 @@ function App() {
       <Route path="/home">
         <Home></Home>
       </Route>
-      <Route path="/explore">
+      <PrivateRoute path="/explore">
         <Services></Services>
-      </Route>
+      </PrivateRoute>
       <Route path="/login">
         <Login></Login>
       </Route>
