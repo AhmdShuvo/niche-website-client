@@ -8,13 +8,22 @@ import { useHistory, useLocation } from 'react-router';
 const Login = () => {
 
   
-  const {Login,error,setError,isLoading,setIsLoadng}=useAuth()
+  const {Login,setIsLoadng,GoogleLogin}=useAuth()
 
  const [logInData,setData]=useState({})
 
  const location=useLocation()
  const history=useHistory()
  const url=location.state?.from.location.pathname||"/home"
+
+
+ const handleGoogle=()=>{
+   GoogleLogin().then(result=>{
+
+    history.replace(url)
+     console.log(result);
+   })
+ }
     
 
   const handleChange=e=>{
@@ -41,6 +50,7 @@ setData(newLogindata)
           }).finally(()=>{
             setIsLoadng(false);
           });
+          
 
 
    
@@ -59,7 +69,7 @@ setData(newLogindata)
   </Form.Group> */}
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
-    <Form.Control onBlur={handleChange} type="email" name="email" placeholder="Enter email" />
+    <Form.Control onChange={handleChange} type="email" name="email" placeholder="Enter email" />
     <Form.Text className="text-muted">
       We'll never share your email with anyone else.
     </Form.Text>
@@ -67,7 +77,7 @@ setData(newLogindata)
 
   <Form.Group className="mb-3" controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
-    <Form.Control onBlur={handleChange} type="password" name="password" placeholder="Password" />
+    <Form.Control onChange={handleChange} type="password" name="password" placeholder="Password" />
   </Form.Group>
   <Button className="border rounded-3 p-3 fs-5" variant="primary" type="submit">
     Log In
@@ -77,7 +87,7 @@ setData(newLogindata)
        </Container>
 
 
-        <center><Button>GoogleSignIn</Button></center>
+        <center><Button onClick={handleGoogle}>GoogleSignIn</Button></center>
        </>
     );
 };

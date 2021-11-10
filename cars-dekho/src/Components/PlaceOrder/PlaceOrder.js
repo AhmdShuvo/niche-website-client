@@ -5,10 +5,12 @@ import UserInputs from './UserInputs';
 
 const PlaceOrder = () => {
 
-    const [order,setOrder]=useState()
+    const [order,setOrder]=useState({})
+
 
     const {carId}=useParams()
-
+      
+    // Load Single Product ///
     useEffect(()=>{
         fetch("https://enigmatic-escarpment-30976.herokuapp.com/cars").then(res=>res.json()).then(data=>{
 
@@ -19,11 +21,19 @@ const PlaceOrder = () => {
         })
 
     },[carId])
-         console.log(order);
+        
+                 
+
+        //  Spinner before Loading data ///
          if(!order){
              return <center><Spinner style={{color:"red",fontSize:"8000px"}} animation="grow" /></center>
          }
-    const {name,cost,about,picture,company}=order;
+
+        //  distructure //
+    const {name,cost,picture}=order;
+
+                       
+       
     return (
         <div>
             <h1>place Order</h1>
@@ -36,7 +46,9 @@ const PlaceOrder = () => {
                     </div>
                     
                     </div>
-                    <UserInputs></UserInputs>
+                    <UserInputs
+                     order={order}
+                    ></UserInputs>
                </Container>
 
 
