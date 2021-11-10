@@ -21,7 +21,9 @@ const Home = () => {
 
             {/* Cars Available  */}
 
-            <Container>
+            
+        {
+            cars.length? <Container>
             <Row xs={1} md={3} className="g-4">
                 {
                     cars.map(car=><Car
@@ -31,7 +33,8 @@ const Home = () => {
                 }
 
             </Row>
-            </Container>
+            </Container>: <center><img src="https://i.redd.it/o6m7b0l6h6pz.gif" alt="Girl in a jacket"/></center>
+        }
 
                    
                    {/* USer Reiview  */}
