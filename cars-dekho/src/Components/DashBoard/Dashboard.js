@@ -7,20 +7,22 @@ const Dashboard = () => {
         <Navbar bg="light" expand={false}>
   <Container fluid>
   <Navbar.Toggle aria-controls="offcanvasNavbar" />
-    <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+    <Navbar.Brand href="/dashboard">Dash Board</Navbar.Brand>
     
-    <Navbar.Offcanvas
+    <Navbar.Offcanvas className="bg-dark"
       id="offcanvasNavbar"
       aria-labelledby="offcanvasNavbarLabel"
       placement="start"
+      
     >
       <Offcanvas.Header closeButton>
         <Offcanvas.Title id="offcanvasNavbarLabel">Offcanvas</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
         <Nav className="justify-content-end flex-grow-1 pe-3">
-          <NavLink href="#action1">Home</NavLink>
-          <NavLink href="#action2">Link</NavLink>
+          <NavLink  className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to="/make admin">make admin</NavLink>
+          <NavLink  className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 "  to="/order/:email">My Orders</NavLink>
+          <NavLink  className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 "  to="/payments">pay Now </NavLink>
           
         </Nav>
       </Offcanvas.Body>

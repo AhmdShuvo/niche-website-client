@@ -2,11 +2,10 @@ import Button from '@restart/ui/esm/Button';
 import React, { useState } from 'react';
 import { Container, Form } from 'react-bootstrap';
 import useAuth from '../../Hooks/useAuth';
-import Login from '../Login/Login';
 
 const SignUp = () => {
 
-  const {register,error,setError,isLoading}=useAuth()
+  const {register,error,setError}=useAuth()
 
  const [logInData,setData]=useState({})
     
@@ -15,7 +14,7 @@ const SignUp = () => {
    const field= e.target.name
    const value=e.target.value
 const newLogindata={...logInData}
-newLogindata [field]=value;
+newLogindata[ field ]=value;
 setData(newLogindata)
 console.log(logInData);
 

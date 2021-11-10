@@ -22,7 +22,7 @@ const Login = () => {
 
     history.replace(url)
      console.log(result);
-   })
+   });
  }
     
 
@@ -30,7 +30,7 @@ const Login = () => {
    const field= e.target.name
    const value=e.target.value
 const newLogindata={...logInData}
-newLogindata [field]=value;
+newLogindata[field]=value;
 setData(newLogindata)
   }
 

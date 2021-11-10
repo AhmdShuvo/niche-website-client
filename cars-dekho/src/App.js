@@ -12,6 +12,7 @@ import AuthProvider from './Contexts/AuthProvider';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import PlaceOrder from './Components/PlaceOrder/PlaceOrder';
 import Review from './Components/Review/Review';
+import Dashboard from './Components/DashBoard/Dashboard';
 
 
 function App() {
@@ -44,6 +45,9 @@ function App() {
       <PrivateRoute path="/review">
         <Review></Review>
       </PrivateRoute>
+      <Route path="/dashboard">
+        <Dashboard></Dashboard>
+      </Route>
 
 
       <Route path="/*">
