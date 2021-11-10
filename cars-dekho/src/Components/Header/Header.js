@@ -5,7 +5,8 @@ import useAuth from '../../Hooks/useAuth';
 
 const Header = () => {
 
-  console.log(useAuth());
+  const {user}=useAuth()
+
 
     return (
         <div>
@@ -17,7 +18,7 @@ const Header = () => {
     <Nav className="me-auto">
       <NavLink className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to="/home">Home</NavLink>
       <NavLink className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to="/Explore">explore</NavLink>
-      <NavLink className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to="/Login">Login</NavLink>
+      {user.email?<NavLink className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to="/Login">Logout</NavLink>:<NavLink className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to="/Login">Login</NavLink>}
      
     </Nav>
   </Navbar.Collapse>

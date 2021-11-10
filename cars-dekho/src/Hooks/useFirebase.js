@@ -9,6 +9,9 @@ initializeFirebase()
 
 const useFirebase=()=>{
 
+  const [error,setError]=useState('')
+  const[isLoading,setIsLoadng]=useState(false)
+
     const [user,setUser]=useState({})
     const auth=getAuth()
 
@@ -16,6 +19,7 @@ const useFirebase=()=>{
 
     // create User ////
    const register=(email,password)=>{
+     setIsLoadng(true)
        createUserWithEmailAndPassword(auth,email,password).then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
@@ -24,8 +28,9 @@ const useFirebase=()=>{
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        
         // ..
-      });
+      }).finally(()=>setIsLoadng(false));
 
 
 }
@@ -37,6 +42,7 @@ const LogOUt=()=>{
     signOut(auth).then(() => {
         // Sign-out successful.
       }).catch((error) => {
+        setError(error.message)
         // An error happened.
       });
 }
@@ -44,6 +50,7 @@ const LogOUt=()=>{
  
 // Sign IN user ///
 const Login=(email,password)=>{
+  setIsLoadng(true)
 
     signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
@@ -54,7 +61,7 @@ const Login=(email,password)=>{
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-  });
+  }).finally(()=>setIsLoadng(false));
 }
 
  
@@ -82,7 +89,7 @@ useEffect(()=>{
 
 
 
-    return {user,register,LogOUt,Login}
+    return {user,register,LogOUt,Login,error,setError,isLoading}
 }
 
 
