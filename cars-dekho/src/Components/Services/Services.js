@@ -11,7 +11,9 @@ const Services = () => {
     },[])
     return (
         <div>
+            
             <h1>services</h1>
+               
             <Container>
             <Row xs={1} md={3} className="g-3">
                 {

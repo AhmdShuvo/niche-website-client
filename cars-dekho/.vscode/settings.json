@@ -1,0 +1,7 @@
+{
+    "emmet.preferences": {
+    "bem.elementSeparator": "__"
+    },
+    "emmet.showSuggestionsAsSnippets": true,
+    "emmet.triggerExpansionOnTab": true
+}

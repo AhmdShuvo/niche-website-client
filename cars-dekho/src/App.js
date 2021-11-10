@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { BrowserRouter ,Switch,Route} from 'react-router-dom';
 import Home from './Components/Home/Home';
@@ -8,12 +8,16 @@ import NotFound from './Components/NotFound/NotFound';
 import Services from './Components/Services/Services';
 import Login from './Components/Login/Login';
 import SignUp from './Components/SignUp/SignUp';
+import AuthProvider from './Contexts/AuthProvider';
+
 
 function App() {
   return (
     
 
-    <BrowserRouter>
+  
+     <AuthProvider>
+        <BrowserRouter>
     <Header></Header>
     <Switch>
       <Route exact path="/">
@@ -40,6 +44,8 @@ function App() {
 
     <Footer></Footer>
     </BrowserRouter>
+     </AuthProvider>
+  
   );
 }
 
