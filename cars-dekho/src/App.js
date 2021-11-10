@@ -10,8 +10,8 @@ import Login from './Components/Login/Login';
 import SignUp from './Components/SignUp/SignUp';
 import AuthProvider from './Contexts/AuthProvider';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
-import { Placeholder } from 'react-bootstrap';
 import PlaceOrder from './Components/PlaceOrder/PlaceOrder';
+import Review from './Components/Review/Review';
 
 
 function App() {
@@ -41,6 +41,9 @@ function App() {
       <Route path="/signup">
         <SignUp></SignUp>
       </Route>
+      <PrivateRoute path="/review">
+        <Review></Review>
+      </PrivateRoute>
 
 
       <Route path="/*">
