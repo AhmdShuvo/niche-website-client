@@ -31,6 +31,8 @@ const AddReview = () => {
                        body:JSON.stringify(ratingInfo)
          
               }).then()
+
+              alert("Your Review added . thanks for staying with us")
      
 
             e.preventDefault()

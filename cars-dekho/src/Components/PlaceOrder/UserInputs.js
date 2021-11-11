@@ -16,7 +16,7 @@ const UserInputs = ({order}) => {
         const field= e.target.name
         const value=e.target.value
      const newUserInfo={...userInfo}
-     newUserInfo [field]=value;
+     newUserInfo[field]=value;
      setInfo(newUserInfo)
             
    
