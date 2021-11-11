@@ -8,7 +8,7 @@ import { useHistory, useLocation } from 'react-router';
 const Login = () => {
 
   
-  const {Login,setIsLoadng,GoogleLogin}=useAuth()
+  const {Login,setIsLoadng,GoogleLogin,saveGoogleUsertoDb}=useAuth()
 
  const [logInData,setData]=useState({})
 
@@ -19,8 +19,10 @@ const Login = () => {
 
  const handleGoogle=()=>{
    GoogleLogin().then(result=>{
-
+    saveGoogleUsertoDb(result.user.email,result.user.displayName)
     history.replace(url)
+
+
      console.log(result);
    });
  }

@@ -5,7 +5,7 @@ import useAuth from '../../Hooks/useAuth';
 
 const SignUp = () => {
 
-  const {register,error,setError}=useAuth()
+  const {register,error,setError,saveUsertoDb}=useAuth()
 
  const [logInData,setData]=useState({})
     
@@ -32,6 +32,8 @@ console.log(logInData);
         console.log(logInData.name);
 
      }
+
+     saveUsertoDb(logInData.email,logInData.name)
 
      alert("user Created ")
         e.preventDefault()

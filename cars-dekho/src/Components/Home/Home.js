@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import Banner from '../Header/Banner/Banner';
+import Review from '../Review/Review';
 import Car from './Car/Car';
-import Review from './Review/Review';
+
 
 const Home = () => {
 

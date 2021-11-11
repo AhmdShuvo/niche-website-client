@@ -105,11 +105,37 @@ useEffect(()=>{
 },[])
 
 
+const saveUsertoDb=(email,displayName)=>{
+
+  const user={email,displayName};
+  user.role="user";
+
+  fetch('http://localhost:9000/users',{
+    method:'POST',
+    headers:{ "content-type": 'application/json'},
+           body:JSON.stringify(user)
+
+  })
+}
+const saveGoogleUsertoDb=(email,displayName)=>{
+
+  const user={email,displayName};
+  user.role="user";
+
+  fetch('http://localhost:9000/users',{
+    method:'PUT',
+    headers:{ "content-type": 'application/json'},
+           body:JSON.stringify(user)
+
+  })
+}
 
 
 
 
-    return {user,register,LogOUt,Login,error,setError,isLoading,setIsLoadng,GoogleLogin}
+
+
+    return {user,register,LogOUt,Login,error,setError,isLoading,setIsLoadng,GoogleLogin,saveUsertoDb,saveGoogleUsertoDb}
 }
 
 
