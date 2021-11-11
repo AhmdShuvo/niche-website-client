@@ -89,7 +89,7 @@ setData(newLogindata)
        </Container>
 
 
-        <center><Button onClick={handleGoogle}>GoogleSignIn</Button></center>
+        <center><Button onClick={handleGoogle}><img style={{marginLeft:"-10%"}} src="./image/Icons/Google Icon.png" alt="Google icon" width="10%"/> GoogleSignIn</Button></center>
        </>
     );
 };
