@@ -27,6 +27,8 @@ const Myorders = () => {
 
         
         <Container className="my-5">
+
+             <h1>My Orders </h1>
             <Row xs={1} md={2} className="g-4">
            {
                orders.map(order=><Order

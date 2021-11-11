@@ -11,6 +11,7 @@ const Order = ({order}) => {
 
        if( confirmation){
         fetch(`https://enigmatic-escarpment-30976.herokuapp.com/order/${order._id}`,{
+            
             method:'DELETE',
             headers: { "content-type" :'application/json'}
         }).then(res=>res.json()).then(data=>{
@@ -18,9 +19,9 @@ const Order = ({order}) => {
         });
        }
 
-        window.location.reload()
+        alert("Order Deleted")
+       window.location.reload()
                   
-        e.preventDefault()
     }
 
          const {name,price,picture,about}= order.purchase

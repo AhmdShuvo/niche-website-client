@@ -61,10 +61,10 @@ const UserInputs = ({order}) => {
                 <Form.Control onBlur={handleChange} name="email" type="email" placeholder="email" defaultValue={user.email} disabled  />
                      <br />
                     <label> Address </label>
-                <Form.Control onBlur={handleChange} name="address" type="text" placeholder="User Address"  />
+                <Form.Control onBlur={handleChange} name="address" type="text" placeholder="User Address" required />
                      <br />
                     <label>Phone Number</label>
-                <Form.Control onBlur={handleChange} name="phone" type="Number" placeholder="Phone" />
+                <Form.Control onBlur={handleChange} name="phone" type="Number" placeholder="Phone" required />
                      <br />
                       <center><Button type="submit" className="btn-warning text-light p-3 fs-5 border rounded-3">Place Order</Button></center></form>
                 </div>
