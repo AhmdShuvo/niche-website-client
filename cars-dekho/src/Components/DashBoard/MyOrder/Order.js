@@ -4,6 +4,25 @@ import { Card, Container } from 'react-bootstrap';
 
 const Order = ({order}) => {
 
+
+    const handleDelete=e=>{
+
+     const confirmation=  window.confirm(`Are You sure want to delete ${order.purchase.name} from You order ?`)
+
+       if( confirmation){
+        fetch(`http://localhost:9000/order/${order._id}`,{
+            method:'Delete',
+            headers:{ "content-type": 'application/json'},
+                   body:JSON.stringify(order)
+     
+          })
+       }
+
+        window.location.reload()
+                  
+        e.preventDefault()
+    }
+
          const {name,price,picture,about}= order.purchase
     return (
                     
@@ -19,7 +38,7 @@ const Order = ({order}) => {
             {about.slice(0,100)}
           </Card.Text>
         </Card.Body>
-         <Button className="btn-danger p-2 fs-3">Delete order</Button>
+         <Button onClick={handleDelete} className="btn-danger p-2 fs-3">Delete order</Button>
       </Card>
       </Container>
       </>
