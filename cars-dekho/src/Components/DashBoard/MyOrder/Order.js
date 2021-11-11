@@ -10,12 +10,12 @@ const Order = ({order}) => {
      const confirmation=  window.confirm(`Are You sure want to delete ${order.purchase.name} from You order ?`)
 
        if( confirmation){
-        fetch(`http://localhost:9000/order/${order._id}`,{
-            method:'Delete',
-            headers:{ "content-type": 'application/json'},
-                   body:JSON.stringify(order)
-     
-          })
+        fetch(`https://enigmatic-escarpment-30976.herokuapp.com/order/${order._id}`,{
+            method:'DELETE',
+            headers: { "content-type" :'application/json'}
+        }).then(res=>res.json()).then(data=>{
+            console.log(data);
+        });
        }
 
         window.location.reload()
@@ -26,22 +26,19 @@ const Order = ({order}) => {
          const {name,price,picture,about}= order.purchase
     return (
                     
-        <>
-               <Container>
-                   
-              
+        <div>          
         <Card className="shadow-lg p-3 mb-5 bg-white rounded">
         <Card.Img variant="top" src={picture}/>
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>
-            {about.slice(0,100)}
+            {about}
           </Card.Text>
         </Card.Body>
          <Button onClick={handleDelete} className="btn-danger p-2 fs-3">Delete order</Button>
       </Card>
-      </Container>
-      </>
+     
+      </div>
     );
 };
 

@@ -11,7 +11,8 @@ const Myorders = () => {
 
       useEffect(()=>{
 
-      fetch(`http://localhost:9000/order/${email}`).then(res=>res.json()).then(data=>setOrders(data))
+
+      fetch(`https://enigmatic-escarpment-30976.herokuapp.com/order/${email}`).then(res=>res.json()).then(data=>setOrders(data))
 
       },[email])
 
@@ -29,7 +30,7 @@ const Myorders = () => {
             <Row xs={1} md={2} className="g-4">
            {
                orders.map(order=><Order
-               key={order.purchase._id}
+               key={order._id}
                order={order}
                ></Order>)
            }

@@ -17,7 +17,7 @@ const Dashboard = () => {
   let { path, url } = useRouteMatch();
 
   useEffect(()=>{ 
-     fetch("http://localhost:9000/users").then(res=>res.json()).then(data=>{
+     fetch("https://enigmatic-escarpment-30976.herokuapp.com/users").then(res=>res.json()).then(data=>{
 
      const match=data.find(us=>us.email===user.email)
      setuser(match);

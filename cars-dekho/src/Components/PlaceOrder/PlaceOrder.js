@@ -39,7 +39,7 @@ const PlaceOrder = () => {
             <h1>place Order</h1>
                <Container>
                     <div className="border border-info p-3 d-lg-flex align-items-center shadow-lg p-3 mb-5 bg-white rounded">
-                    <img  className="img-fluid w-50" src={picture} alt="Girl in a jacket"/>
+                    <img  className="img-fluid w-50" src={picture} alt=""/>
                     <div className="mx-4">
                         <h4>{name}</h4>
                         <h5> M.R.P :$ {cost }</h5>
