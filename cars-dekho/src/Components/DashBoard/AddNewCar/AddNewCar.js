@@ -1,16 +1,12 @@
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { Form } from 'react-bootstrap';
+import { Container} from 'react-bootstrap';
 
 const AddNewCar = () => {
     const element = <FontAwesomeIcon icon={faUpload} />
 
    const [CarData,setData]=useState({})
-
-  const handlephoto=e=>{
-      console.log(e.target.value);
-  }
                
     const handleChange=e=>{
         const field= e.target.name
@@ -43,7 +39,7 @@ const AddNewCar = () => {
 
 
     return (
-        <div>
+        <Container>
             <h1>Add New Car</h1>
 
             <form className="container" onSubmit={handleUpload} >
@@ -58,13 +54,7 @@ const AddNewCar = () => {
 
             <button className="btn-warning text-light p-3 border rounded-3 fs-4" type="submit">upload  {element} </button>
           </form>
-
-
-          <Form.Group controlId="formFile" className="mb-3">
-    <Form.Label>Default file input example</Form.Label>
-    <Form.Control onChange={handlephoto} type="file" />
-  </Form.Group>
-        </div>
+        </Container>
     );
 };
 

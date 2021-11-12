@@ -8,10 +8,7 @@ const AdminRoute = (props) => {
         
 
     const {children,...rest}=props
-    const {user,isLoading,admin}=useAuth()
-    console.log(isLoading);
-
-    console.log(user);
+    const {user,admin}=useAuth()
                     
     if(!admin){
 

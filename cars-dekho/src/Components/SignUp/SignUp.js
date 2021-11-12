@@ -16,7 +16,6 @@ const SignUp = () => {
 const newLogindata={...logInData}
 newLogindata[ field ]=value;
 setData(newLogindata)
-console.log(logInData);
 
 
   }
@@ -29,7 +28,7 @@ console.log(logInData);
                    
      else{
         register(logInData.email,logInData.password,logInData.name)
-        console.log(logInData.name);
+
 
      }
 

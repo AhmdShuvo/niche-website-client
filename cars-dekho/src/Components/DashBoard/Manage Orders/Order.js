@@ -1,10 +1,9 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
 
 const Order = ({order}) => {
 
 
-    const {name,picture,}=order.purchase
+    const {name,picture,status}=order.purchase
 
     const handleUpdate=e=>{ 
 
@@ -29,7 +28,6 @@ const Order = ({order}) => {
             method:'DELETE',
             headers: { "content-type" :'application/json'}
         }).then(res=>res.json()).then(data=>{
-            console.log(data);
         });
         
 
@@ -45,7 +43,7 @@ const Order = ({order}) => {
                    <img className="w-50 me-5" src={picture} alt="" />
                    <div>
                    <h4>{name}</h4>
-                  
+                   <h5> status : {order.status}</h5>
            </div>
             </div>
             <button onClick={()=>handleDelete(order._id)} className="btn-danger p-3 text-light border rounded-3 m-3">Delete</button>

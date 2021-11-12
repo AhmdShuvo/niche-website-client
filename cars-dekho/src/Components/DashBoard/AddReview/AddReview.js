@@ -12,12 +12,10 @@ const AddReview = () => {
         const field= e.target.name
         const value=e.target.value
      const newUserInfo={...ratingData}
-     newUserInfo [field]=value;
+     newUserInfo[field]=value;
      setRatingData(newUserInfo)
      
     } 
-
-    console.log(ratingData);  
 
         const handleRating=e=>{
           const  userdata={name:`${user.displayName}`,email:`${user.email}`}

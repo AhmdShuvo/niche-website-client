@@ -21,9 +21,6 @@ const Login = () => {
    GoogleLogin().then(result=>{
     saveGoogleUsertoDb(result.user.email,result.user.displayName)
     history.replace(url)
-
-
-     console.log(result);
    });
  }
     

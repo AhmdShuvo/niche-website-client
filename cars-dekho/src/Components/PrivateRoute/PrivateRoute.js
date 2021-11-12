@@ -8,9 +8,7 @@ const PrivateRoute = (props) => {
 
     const {children,...rest}=props
     const {user,isLoading}=useAuth()
-    console.log(isLoading);
-
-    console.log(user);
+    
                     
     if(isLoading){
 
