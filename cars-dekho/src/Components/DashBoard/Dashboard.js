@@ -51,11 +51,12 @@ const Dashboard = () => {
       </Offcanvas.Header>
       <Offcanvas.Body>
         <Nav className="justify-content-end flex-grow-1 pe-3">
-          <NavLink  className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to={`${url}/addreview`}>review</NavLink>
-          <NavLink  className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 "  to={`${url}/order/${user.email}`}>My Orders</NavLink>
-          <NavLink  className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 "  to={`${url}/payment`}>pay Now </NavLink>
+          { !CurrentUser.role && <NavLink  className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to={`${url}/addreview`}>review</NavLink>}
+          {!CurrentUser.role && <NavLink  className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 "  to={`${url}/order/${user.email}`}>My Orders</NavLink>}
+         {!CurrentUser.role && <NavLink  className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 "  to={`${url}/payment`}>pay Now </NavLink>}
           {CurrentUser.role==="admin" &&<NavLink  className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to={`${url}/makeAdmin`}>make Admin</NavLink>}
           {CurrentUser.role==="admin" &&<NavLink  className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to={`${url}/add`}>add New car </NavLink>}
+          {CurrentUser.role==="admin" &&<NavLink  className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to={`${url}/manage`}>Manage Orders </NavLink>}
           {user.email?<NavLink onClick={LogOUt} className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to="/Login">Logout</NavLink>:<NavLink className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to="/Login">Login</NavLink>}
                      
 
