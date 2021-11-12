@@ -35,6 +35,9 @@ const Order = ({order}) => {
           <Card.Text>
             {about}
           </Card.Text>
+          <div className="border border-info p-3 ">
+            <h4> status : {order.status}</h4>
+          </div>
         </Card.Body>
          <Button onClick={handleDelete} className="btn-danger p-2 fs-3">Delete order</Button>
       </Card>

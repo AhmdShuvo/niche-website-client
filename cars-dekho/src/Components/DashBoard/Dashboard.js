@@ -25,6 +25,7 @@ const Dashboard = () => {
      
 
   },[user])
+  console.log(CurrentUser);
 
    if(!CurrentUser){
 

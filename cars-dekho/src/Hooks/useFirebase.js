@@ -108,7 +108,6 @@ useEffect(()=>{
 const saveUsertoDb=(email,displayName)=>{
 
   const user={email,displayName};
-  user.role="user";
 
   fetch('https://enigmatic-escarpment-30976.herokuapp.com/users',{
     method:'POST',
@@ -120,7 +119,6 @@ const saveUsertoDb=(email,displayName)=>{
 const saveGoogleUsertoDb=(email,displayName)=>{
 
   const user={email,displayName};
-  user.role="user";
 
   fetch('https://enigmatic-escarpment-30976.herokuapp.com/users',{
     method:'PUT',
