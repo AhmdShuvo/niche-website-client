@@ -37,8 +37,6 @@ const AddReview = () => {
 
             e.preventDefault()
         }    
-        
-        console.log(parseInt(ratingData.stars));
 
     return (
       
@@ -54,7 +52,7 @@ const AddReview = () => {
   </Form.Group>
   <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
     <Form.Label>Star's</Form.Label>
-    <Form.Control onChange={handleChange}  name="stars" type="number" placeholder="Rate Out of 5"  min="1" max="5" required />
+    <Form.Control onChange={handleChange}  name="stars" type="number" placeholder="Rate Out of 5"  min="1" max="5"  step="0.01" required />
   </Form.Group>
   <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
     <Form.Label>Explain Your feedback</Form.Label>

@@ -2,8 +2,10 @@ import Button from '@restart/ui/esm/Button';
 import React from 'react';
 import { Card} from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../Hooks/useAuth';
 
 const Car = ({car}) => {
+  const {setIsLoadng}=useAuth()
     const {name,cost,about,picture,company,_id}=car;
     const url=`/product/${_id}`
 
@@ -19,7 +21,7 @@ const Car = ({car}) => {
      {about.slice(0,378)}
     </Card.Text>
         
-    <NavLink to={url}><Button style={{backgroundColor:"orangered",padding:'10px',color:'white',borderRadius:'10px',fontFamily:'sans-serif'}}>Order Now</Button></NavLink>
+    <NavLink onClick={()=>setIsLoadng(false)} to={url}><Button style={{backgroundColor:"orangered",padding:'10px',color:'white',borderRadius:'10px',fontFamily:'sans-serif'}}>Order Now</Button></NavLink>
   </Card.Body>
 </Card>
         </div>

@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Container, Nav, Navbar, Offcanvas, Spinner } from 'react-bootstrap';
 import { NavLink,useRouteMatch,Switch,Route } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
+import AdminRoute from '../Login/AdminRoute/AdminRoute';
 import Payment from '../Payment/Payment';
 import AddNewCar from './AddNewCar/AddNewCar';
 import AddReview from './AddReview/AddReview';
 import DashboardHome from './DashBoardHome/DashboardHome';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
+import ManageOrder from './Manage Orders/ManageOrder';
 import Myorders from './MyOrder/Myorders';
 
 const Dashboard = () => {
@@ -68,7 +70,7 @@ const Dashboard = () => {
 </Navbar>
 
 
-                       <section>
+                       <Container>
                        <Switch>
         <Route exact path={path}>
          <DashboardHome></DashboardHome>
@@ -79,19 +81,22 @@ const Dashboard = () => {
         <Route path={`${path}/order/:email`}>
           <Myorders></Myorders>
         </Route>
-        <Route path ={`${path}/makeAdmin`}>
+        <AdminRoute path ={`${path}/makeAdmin`}>
           <MakeAdmin></MakeAdmin>
-        </Route>
+        </AdminRoute>
         <Route path={`${path}/payment`}>
           <Payment></Payment>
         </Route>
-        <Route path={`${path}/add`}>
+        <AdminRoute path={`${path}/add`}>
           <AddNewCar></AddNewCar>
-        </Route>
+        </AdminRoute>
+        <AdminRoute path={`${path}/manage`}>
+          <ManageOrder></ManageOrder>
+        </AdminRoute>
       </Switch>
 
 
-                       </section>
+                       </Container>
 </>
     );
 };

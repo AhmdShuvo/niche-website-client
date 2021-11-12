@@ -12,6 +12,7 @@ const useFirebase=()=>{
 
   const [error,setError]=useState('')
   const[isLoading,setIsLoadng]=useState(true)
+  const [admin,setIsAdmin]=useState(false)
 
     const [user,setUser]=useState({})
     const auth=getAuth();
@@ -81,7 +82,13 @@ const Login=(email,password)=>{
   
   
 }
+     
 
+useEffect(()=>{
+
+  fetch(`http://localhost:9000/user/admin/${user.email}`).then(res=>res.json()).then(data=>setIsAdmin(data.admin))
+
+},[user.email])
  
 
 // Observer ///
@@ -133,7 +140,7 @@ const saveGoogleUsertoDb=(email,displayName)=>{
 
 
 
-    return {user,register,LogOUt,Login,error,setError,isLoading,setIsLoadng,GoogleLogin,saveUsertoDb,saveGoogleUsertoDb}
+    return {user,register,LogOUt,Login,error,setError,isLoading,setIsLoadng,GoogleLogin,saveUsertoDb,saveGoogleUsertoDb,admin}
 }
 
 

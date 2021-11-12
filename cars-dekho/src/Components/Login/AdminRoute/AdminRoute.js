@@ -1,18 +1,19 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router';
+import useAuth from '../../../Hooks/useAuth';
 
-import useAuth from '../../Hooks/useAuth';
 
-const PrivateRoute = (props) => {
+
+const AdminRoute = (props) => {
         
 
     const {children,...rest}=props
-    const {user,isLoading}=useAuth()
+    const {user,isLoading,admin}=useAuth()
     console.log(isLoading);
 
     console.log(user);
                     
-    if(isLoading){
+    if(!admin){
 
         return <div className="d-flex justify-content-center ">
         <div className="spinner-border" role="status">
@@ -27,7 +28,7 @@ const PrivateRoute = (props) => {
 
         <Route
         {...rest}
-        render={({location})=> user.email?children:<Redirect to={{pathname:"/login",state:{from:{location}}
+        render={({location})=> user?.email && admin?children:<Redirect to={{pathname:"/home",state:{from:{location}}
     
     }}></Redirect>}
 
@@ -38,4 +39,4 @@ const PrivateRoute = (props) => {
     );
 };
 
-export default PrivateRoute;
+export default AdminRoute;

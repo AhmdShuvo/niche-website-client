@@ -1,7 +1,12 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import Rating from 'react-rating';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import "./Review.css"
 
 const SignleReview = ({review}) => {
+    const element = <FontAwesomeIcon icon={faCoffee} />
     return (
         <>
              
@@ -10,8 +15,15 @@ const SignleReview = ({review}) => {
                  <div className="border border-info p-3">
                  <Card.Text> Feedback</Card.Text>
                  <Card.Text> {review.Feedback}</Card.Text>
+                
+                 
                  </div>
-                 <Card.Text> stars {review.stars}</Card.Text>
+                 <Rating
+                 initialRating={review.stars}
+                  emptySymbol="far fa-star "
+                  fullSymbol="fas fa-star  icon-color "
+                  readonly
+                 ></Rating>
              </Card>
         </>
 
