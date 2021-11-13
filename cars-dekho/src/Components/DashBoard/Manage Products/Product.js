@@ -10,7 +10,7 @@ const Product = ({car}) => {
 
         const agree=  window.confirm("Are You Sure want to delete this ? ")
           if(agree){
-           fetch(`http://localhost:9000/cars/${_id}`,{
+           fetch(`https://enigmatic-escarpment-30976.herokuapp.com/cars/${_id}`,{
                method:'DELETE',
                headers: { "content-type" :'application/json'}
            }).then(res=>res.json()).then(data=>{
