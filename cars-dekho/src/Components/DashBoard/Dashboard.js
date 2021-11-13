@@ -12,6 +12,7 @@ import AddReview from './AddReview/AddReview';
 import DashboardHome from './DashBoardHome/DashboardHome';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
 import ManageOrder from './Manage Orders/ManageOrder';
+import ManageProducts from './Manage Products/ManageProducts';
 import Myorders from './MyOrder/Myorders';
 
 const Dashboard = () => {
@@ -68,6 +69,7 @@ const Dashboard = () => {
           {CurrentUser.role==="admin" &&<NavLink  className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to={`${url}/makeAdmin`}> {adminIcon} make Admin</NavLink>}
           {CurrentUser.role==="admin" &&<NavLink  className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to={`${url}/add`}>{addIcon}  add New car </NavLink>}
           {CurrentUser.role==="admin" &&<NavLink  className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to={`${url}/manage`}>{manageIcon}  Manage Orders </NavLink>}
+          {CurrentUser.role==="admin" &&<NavLink  className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to={`${url}/products`}>{manageIcon}  Manage products </NavLink>}
           {user.email?<NavLink onClick={LogOUt} className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to="/Login"> {LogoutIcon} Logout</NavLink>:<NavLink className="navbar-brand text-light border border-secondary p-2 rounded-3 m-2 " to="/Login">Login</NavLink>}
                      
 
@@ -101,6 +103,9 @@ const Dashboard = () => {
         </AdminRoute>
         <AdminRoute path={`${path}/manage`}>
           <ManageOrder></ManageOrder>
+        </AdminRoute>
+        <AdminRoute path={`${path}/products`}>
+          <ManageProducts></ManageProducts>
         </AdminRoute>
       </Switch>
 
