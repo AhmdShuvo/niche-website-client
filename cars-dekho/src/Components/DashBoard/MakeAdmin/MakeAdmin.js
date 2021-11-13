@@ -17,7 +17,7 @@ const MakeAdmin = () => {
 
           
                               
-        fetch('http://localhost:9000/users',{
+        fetch('https://enigmatic-escarpment-30976.herokuapp.com/users',{
           method:'PUT',
           headers:{ "content-type": 'application/json'},
                  body:JSON.stringify(user)

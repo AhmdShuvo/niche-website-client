@@ -23,7 +23,7 @@ const AddReview = () => {
             const ratingInfo=ratingData;
             ratingInfo.users=userdata;
 
-            fetch('http://localhost:9000/reviews',{
+            fetch('https://enigmatic-escarpment-30976.herokuapp.com/reviews',{
                 method:'POST',
                 headers:{ "content-type": 'application/json'},
                        body:JSON.stringify(ratingInfo)

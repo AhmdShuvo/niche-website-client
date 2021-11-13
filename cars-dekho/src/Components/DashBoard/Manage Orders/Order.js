@@ -7,7 +7,7 @@ const Order = ({order}) => {
 
     const handleUpdate=e=>{ 
 
-        fetch(`http://localhost:9000/orders/${order._id}`,{
+        fetch(`https://enigmatic-escarpment-30976.herokuapp.com/orders/${order._id}`,{
             method:"PUT",
               headers: { "content-type" :'application/json'},
 
@@ -24,7 +24,7 @@ const Order = ({order}) => {
 
      const agree=  window.confirm("Are You Sure want to delete this ? ")
        if(agree){
-        fetch(`http://localhost:9000/orders/${id}`,{
+        fetch(`https://enigmatic-escarpment-30976.herokuapp.com/orders/${id}`,{
             method:'DELETE',
             headers: { "content-type" :'application/json'}
         }).then(res=>res.json()).then(data=>{

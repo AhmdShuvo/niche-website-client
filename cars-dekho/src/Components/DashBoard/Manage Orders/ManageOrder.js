@@ -7,7 +7,7 @@ const ManageOrder = () => {
     const [orders,setOrders]=useState([])
 
             useEffect(()=>{
-                fetch("http://localhost:9000/orders").then(res=>res.json()).then(data=>setOrders(data))
+                fetch("https://enigmatic-escarpment-30976.herokuapp.com/orders").then(res=>res.json()).then(data=>setOrders(data))
             },[])
     return (
         <Container className="my-5">  

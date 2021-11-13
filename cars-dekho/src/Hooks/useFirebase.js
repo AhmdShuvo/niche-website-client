@@ -86,7 +86,7 @@ const Login=(email,password)=>{
 
 useEffect(()=>{
 
-  fetch(`http://localhost:9000/user/admin/${user.email}`).then(res=>res.json()).then(data=>setIsAdmin(data.admin))
+  fetch(`https://enigmatic-escarpment-30976.herokuapp.com/user/admin/${user.email}`).then(res=>res.json()).then(data=>setIsAdmin(data.admin))
 
 },[user.email])
  
@@ -128,17 +128,13 @@ const saveGoogleUsertoDb=(email,displayName)=>{
   const user={email,displayName};
 
   fetch('https://enigmatic-escarpment-30976.herokuapp.com/users',{
-    method:'PUT',
+    method:'POST',
     headers:{ "content-type": 'application/json'},
            body:JSON.stringify(user)
 
-  })
+  }).then(res=>res.json()).then(data=>console.log(data))
 }
-
-
-
-
-
+     
 
     return {user,register,LogOUt,Login,error,setError,isLoading,setIsLoadng,GoogleLogin,saveUsertoDb,saveGoogleUsertoDb,admin}
 }

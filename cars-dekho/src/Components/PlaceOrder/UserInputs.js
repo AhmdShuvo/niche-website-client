@@ -1,9 +1,12 @@
+import { faFirstOrderAlt } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '@restart/ui/esm/Button';
 import React, { useState } from 'react';
 import { Container, Form } from 'react-bootstrap';
 import useAuth from '../../Hooks/useAuth';
 
 const UserInputs = ({order}) => {
+    const userIcon = <FontAwesomeIcon icon={faFirstOrderAlt} />
        
     const {user}=useAuth()
 
@@ -66,7 +69,7 @@ const UserInputs = ({order}) => {
                     <label>Phone Number</label>
                 <Form.Control onBlur={handleChange} name="phone" type="Number" placeholder="Phone" required />
                      <br />
-                      <center><Button type="submit" className="btn-warning text-light p-3 fs-5 border rounded-3">Place Order</Button></center></form>
+                      <center><Button type="submit" className="btn-warning text-light p-3 fs-5 border rounded-3">Place Order {userIcon}</Button></center></form>
                 </div>
               </Container>
         </div>

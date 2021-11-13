@@ -4,8 +4,12 @@ import { Form ,Button, Container} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import { useHistory, useLocation } from 'react-router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 
 const Login = () => {
+  const logInIcon = <FontAwesomeIcon icon={faSignInAlt} />
+
 
   
   const {Login,setIsLoadng,GoogleLogin,saveGoogleUsertoDb}=useAuth()
@@ -78,15 +82,15 @@ setData(newLogindata)
     <Form.Label>Password</Form.Label>
     <Form.Control onChange={handleChange} type="password" name="password" placeholder="Password" />
   </Form.Group>
-  <Button className="border rounded-3 p-3 fs-5" variant="primary" type="submit">
-    Log In
+  <Button className="border rounded-3 p-3 fs-5" variant="primary" type="submit">{logInIcon}    
+     Log In
   </Button>
 </Form>
          <center> <Link style={{color:'salmon'}} className="navbar-brand" to="/signup">New User ? SignUp Now</Link></center>
        </Container>
 
 
-        <center><Button onClick={handleGoogle}><img style={{marginLeft:"-10%"}} src="./image/Icons/Google Icon.png" alt="Google icon" width="10%"/> GoogleSignIn</Button></center>
+        <center><Button onClick={handleGoogle}><img style={{marginLeft:"-10%"}} src="./image/Icons/Google Icon.png" alt="Google icon" width="10%"/> GoogleSignIn {logInIcon}  </Button></center>
        </>
     );
 };

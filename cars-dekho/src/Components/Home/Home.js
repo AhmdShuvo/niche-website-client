@@ -3,6 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 import Banner from '../Header/Banner/Banner';
 import Review from '../Review/Review';
 import Car from './Car/Car';
+import WhyUs from './WhyUs';
 
 
 const Home = () => {
@@ -36,10 +37,18 @@ const Home = () => {
             </Row>
             </Container>: <center><img src="https://i.redd.it/o6m7b0l6h6pz.gif" alt="Girl in a jacket"/></center>
         }
+              
 
+              <section>
+                  <WhyUs></WhyUs>
+              </section>
                    
                    {/* USer Reiview  */}
+
+            <section className="my-5">
+                <h4>Testimonials</h4>
             <Review></Review>
+            </section>
         </Container>
         </>
 

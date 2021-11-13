@@ -20,7 +20,7 @@ const AddNewCar = () => {
     const handleUpload=e=>{
 
                 const data=CarData
-              fetch("http://localhost:9000/cars",{
+              fetch("https://enigmatic-escarpment-30976.herokuapp.com/cars",{
         
              method:"POST",headers:{"content-type":'application/json'},
              body:JSON.stringify(data)
