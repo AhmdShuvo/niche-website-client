@@ -1,10 +1,11 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
 
 const NotFound = () => {
     return (
-        <div>
-           <h1>Page Not Found</h1> 
-        </div>
+        <Container className="container">
+          <center> <img className="img-fluid" src="./image/100130939-error-404-page-not-found-error-with-glitch-effect-on-screen-vector-illustration-for-your-design--removebg-preview.png" alt="" /></center>
+        </Container>
     );
 };
 

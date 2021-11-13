@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap';
 
 const Product = ({car}) => {
 
-    const {name,picture,about,_id}=car
+    const {name,picture,_id}=car
 
     const handleDelete=(id)=>{
 

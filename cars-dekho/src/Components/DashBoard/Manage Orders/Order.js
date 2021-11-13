@@ -3,7 +3,7 @@ import React from 'react';
 const Order = ({order}) => {
 
 
-    const {name,picture,status}=order.purchase
+    const {name,picture}=order.purchase
 
     const handleUpdate=e=>{ 
 
